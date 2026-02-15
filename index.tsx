@@ -1,10 +1,10 @@
-/*
- * Vencord, a Discord client mod
- * Copyright (c) 2026 Vendicated and contributors
- * SPDX-License-Identifier: GPL-3.0-or-later
- */
+export const pluginInfo = {
+    id: "devToggle",
+    name: "Dev Toggle",
+    description: "Adds a checkbox to the Equicord/Vencord toolbox to enable/disable all developer tools at once",
+    color: "#7289da"
+};
 
-// Authors: Bluscream
 // Created at 2026-01-10 08:30:00
 
 import { definePluginSettings,Settings } from "@api/Settings";
@@ -37,12 +37,10 @@ const settings = definePluginSettings({
 
 import { Logger } from "@utils/Logger";
 
-const pluginId = "devToggle";
-const pluginName = "Dev Toggle";
-const logger = new Logger(pluginName, "#7289da");
+const logger = new Logger(pluginInfo.name, pluginInfo.color);
 
 export default definePlugin({
-    name: pluginName,
+    name: "Dev Toggle",
     description: "Adds a checkbox to the Equicord/Vencord toolbox to enable/disable all developer tools at once",
     authors: [
         { name: "Windsurf", id: 0n },
