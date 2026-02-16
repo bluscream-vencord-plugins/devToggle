@@ -1,17 +1,29 @@
+//// Plugin originally written for Equicord at 2026-02-16 by https://github.com/Bluscream, https://antigravity.google
+// region Imports
+import { Settings } from "@api/Settings";
+import definePlugin from "@utils/types";
+import { Menu } from "@webpack/common";
+import { Logger } from "@utils/Logger";
+
+import { settings } from "./settings";
+// endregion Imports
+
+// region PluginInfo
 export const pluginInfo = {
     id: "devToggle",
-    name: "Dev Toggle",
-    description: "Adds a checkbox to the Equicord/Vencord toolbox to enable/disable all developer tools at once",
-    color: "#7289da"
+    name: "DevToggle",
+    description: "Adds a checkbox to the toolbox to toggle all developer tools at once",
+    color: "#7289da",
+    authors: [
+        { name: "Bluscream", id: 467777925790564352n },
+        { name: "Assistant", id: 0n }
+    ],
 };
+// endregion PluginInfo
 
-// Created at 2026-01-10 08:30:00
+// region Variables
+const logger = new Logger(pluginInfo.id, pluginInfo.color);
 
-import { definePluginSettings,Settings } from "@api/Settings";
-import definePlugin, { OptionType } from "@utils/types";
-import { Menu } from "@webpack/common";
-
-// List of developer plugins to toggle
 const DEV_PLUGINS = [
     "DevCompanion",
     "devcompanionExtended",
@@ -19,33 +31,18 @@ const DEV_PLUGINS = [
     "F8Break",
     "Experiments",
     "NoDevtoolsWarning",
-    // "EquicordToolbox", // this would break our enable mechanism
     "ConsoleJanitor",
     "ReactErrorDecoder",
     "ViewRawVariant",
     "ViewRaw"
 ];
+// endregion Variables
 
-const settings = definePluginSettings({
-    devMode: {
-        type: OptionType.BOOLEAN,
-        description: "Enable all developer tools",
-        default: false,
-        restartNeeded: false
-    }
-});
-
-import { Logger } from "@utils/Logger";
-
-const logger = new Logger(pluginInfo.name, pluginInfo.color);
-
+// region Definition
 export default definePlugin({
-    name: "Dev Toggle",
-    description: "Adds a checkbox to the Equicord/Vencord toolbox to enable/disable all developer tools at once",
-    authors: [
-        { name: "Windsurf", id: 0n },
-        { name: "Bluscream", id: 467777925790564352n },
-    ],
+    name: pluginInfo.name,
+    description: pluginInfo.description,
+    authors: pluginInfo.authors,
     settings,
 
     toolboxActions() {
@@ -82,3 +79,4 @@ export default definePlugin({
         );
     },
 });
+// endregion Definition

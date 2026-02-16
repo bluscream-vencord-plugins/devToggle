@@ -1,7 +1,7 @@
 {
     "name": "devToggle",
     "version": "1.0.0",
-    "description": "Dev Toggle",
+    "description": "Adds a checkbox to the toolbox to toggle all developer tools at once",
     "main": "index.tsx",
     "author": {
         "name": "Bluscream",
@@ -10,7 +10,7 @@
     "license": "GPL-3.0-or-later",
     "repository": {
         "type": "git",
-        "url": "https://github.com/bluscream-vencord-plugins/blu-devToggle.git"
+        "url": "https://github.com/bluscream-vencord-plugins/devToggle.git"
     },
     "vencord": {
         "plugin": true,
